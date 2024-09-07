@@ -64,3 +64,19 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+'blue-chill': {
+        '50': '#f2f9f9',
+        '100': '#ddeff0',
+        '200': '#bfe0e2',
+        '300': '#92cace',
+        '400': '#5faab1',
+        '500': '#438e96',
+        '600': '#3b757f',
+        '700': '#356169',
+        '800': '#325158',
+        '900': '#2d464c',
+        '950': '#1a2c32',
+    },
+    

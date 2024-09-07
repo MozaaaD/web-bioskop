@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $datas = Film::all();
+        return view('welcome', compact('datas'));
     }
-    public function pesan()
+
+    public function home()
     {
-        return view('pesan');
+        $datas = Film::all();
+        return view('dashboard.home', compact('datas'));
+    }
+    public function pesan($id)
+    {
+        $data = Film::find($id);
+        return view('pesan', compact('data'));
     }
     public function deskripsi()
     {

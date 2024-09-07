@@ -31,27 +31,11 @@
         .full-height {
             height: 100vh;
         }
-
-        .hijau {
-            color: #438e96;
-        }
-
-        .bg-green-light {
-            background-color: #bfe0e2;
-        }
-
-        .bg-green-medium {
-            background-color: #92cace;
-        }
-
-        .bg-green-bold {
-            background-color: #438e96
-        }
     </style>
 </head>
 <body class="bg-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand text-white" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -78,7 +62,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-light text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -93,7 +77,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a href="/home" class="dropdown-item">Dashboard</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -106,9 +89,22 @@
             </div>
         </nav>
 
-        <main class="py-4 mt-5 bs-success-bg-subtle">
-            @yield('content')
-        </main>
+        <div class="container-fluid mt-5">
+            <div class="row">
+    
+                <!-- Content -->
+                <main class="col-md-8 ml-sm-auto col-lg-10 px-md-4 mx-auto">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Dashboard</h1>
+                    </div>
+                    
+                    <!-- Tempat konten -->
+                    @yield('content')
+                    
+                </main>
+            </div>
+        </div>
     </div>
 </body>
 </html>
+
