@@ -20,3 +20,9 @@ Route::get('/create', [FilmController::class, 'create'])->name('create');
 Route::get('/update/{id}', [FilmController::class, 'update'])->name('update');
 Route::get('/delete/{id}', [FilmController::class, 'delete'])->name('delete');
 Route::post('/edit/{id}', [FilmController::class, 'edit'])->name('edit');
+
+Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
+
+Route::get('/test', function () {
+    return view('test.home');
+});

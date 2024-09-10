@@ -7,13 +7,13 @@
 
             <!-- hero section -->
           <div class="container full-height d-flex align-items-center">
-            <div class="w-50">
-              <h1 class="display-4 text-start fw-medium">Welcome to <br><span class="fw-bold">Bioskop Hebat</span></h1>
-              <p class="lead text-start">Discover the latest films and watch trailers for free!</p>
-              <a href="#movies" class="btn btn-success mr-5" style="width: 30%">Explore Movies</a>
+            <div class="w-50 pl-5">
+              <h1 class="display-4 text-start fw-bold">Nonton Film Paling Seru Ya Di <span class="text-primary">Cinema XI</span></h1>
+              <p class="lead text-start text-secondary">Buruan ajak orang terdekat kamu untuk nonton film di Cinema Xi, dijamin kamu akan balik lagi.</p>
+              <a href="#movies" class="btn bg-primary mr-5 py-3 px-5 text-white fs-5 rounded">Explore Movies <img src="svg/arrow.svg" alt="cinema" class="ml-2"></a>
             </div>
             <div class="w-50">
-              <img src="popcorn.png" alt="ean subekti">
+              <img src="cinema.png" alt="ean subekti">
             </div>
           </div>
             <br>
@@ -28,7 +28,7 @@
                         <div class="card-body">
                           <h5 class="card-title">{{ $data->title }}</h5>
                           {{-- <p class="card-text">aoa iya</p> --}}
-                          <a href="/pesan/{{ $data->id }}" class="btn btn-primary">Pesan</a>
+                          {{-- <a href="/detail/{{ $data->id }}" class="btn btn-primary">Pesan</a> --}}
                         </div>
                     </div>
                   </div>

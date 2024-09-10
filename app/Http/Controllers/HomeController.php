@@ -42,4 +42,10 @@ class HomeController extends Controller
     {
         return view('deskripsi');
     }
+
+    public function detail($id)
+    {
+        $data = Film::find($id);
+        return view('detail', compact('data'));
+    }
 }
