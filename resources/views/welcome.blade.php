@@ -8,7 +8,7 @@
             <!-- hero section -->
           <div class="container full-height d-flex align-items-center">
             <div class="w-50">
-              <h1 class="display-4 text-start fw-medium">Welcome to <br><span class="fw-bold">Bioskop Hebat</span></h1>
+              <h1 class="display-4 text-start fw-medium">Welcome to <br><span class="fw-bold">CINEMA XI</span></h1>
               <p class="lead text-start">Discover the latest films and watch trailers for free!</p>
               <a href="#movies" class="btn btn-success mr-5" style="width: 30%">Explore Movies</a>
             </div>

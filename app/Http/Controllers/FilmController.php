@@ -27,7 +27,7 @@ class FilmController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'duration' => $request->duration,
-                'image' => $imagePath,
+                'image' => $imagePath,  
             ]);
         }
 
