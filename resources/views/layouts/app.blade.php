@@ -21,7 +21,7 @@
 
     <style>
         * {
-            font-family: 'Poppins'
+            font-family: 'Outfit'
         }
 
         .text-poppins {
@@ -47,14 +47,22 @@
         .bg-green-bold {
             background-color: #438e96
         }
+
+        .text-primary {
+            color: #006FD6;
+        }
+
+        .bg-primary {
+            background-color: #006FD6;
+        }
     </style>
 </head>
 <body class="bg-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
             <div class="container">
-                <a class="navbar-brand text-white" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand text-primary fw-bold fs-2" href="{{ url('/') }}">
+                    Cinema XI
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="row justify-content-start">
+  <div class="row">
     <div class="col">
       <img src="{{ '/storage/'.$data->image }}" alt="Image not found!" width="300" height="450" class="object-fit-cover">
     </div>
