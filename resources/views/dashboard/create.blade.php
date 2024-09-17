@@ -11,6 +11,10 @@
               <input type="text" class="form-control" id="title" name="title">
             </div>
             <div class="mb-3">
+              <label for="harga" class="form-label">Harga</label>
+              <input type="text" class="form-control" id="harga" name="harga">
+            </div>
+            <div class="mb-3">
               <label for="desctiption" class="form-label">description</label>
               <input type="text" class="form-control" id="description" name="description">
             </div>

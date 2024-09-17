@@ -59,7 +59,7 @@
 </head>
 <body class="bg-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="backdrop-filter: blur(3px);">
             <div class="container">
                 <a class="navbar-brand text-primary fw-bold fs-2" href="{{ url('/') }}">
                     Cinema XI
@@ -80,18 +80,18 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link text-black" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-light text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link btn btn-light text-black" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

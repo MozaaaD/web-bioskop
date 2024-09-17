@@ -17,6 +17,7 @@ class FilmController extends Controller
             'title' => 'required',
             'description'  => 'required',
             'duration' => 'required' ,
+            'harga' => 'required' ,
             'image' => 'required',
         ]);
 
@@ -27,6 +28,7 @@ class FilmController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'duration' => $request->duration,
+                'harga' => $request->harga,
                 'image' => $imagePath,  
             ]);
         }
