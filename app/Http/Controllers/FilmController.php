@@ -21,6 +21,10 @@ class FilmController extends Controller
             'image' => 'required',
         ]);
 
+        $numberOfSeats = $request->input('seat_number');
+
+        \App\Models\Seat::truncate();
+
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('films', 'public');
             
@@ -31,6 +35,13 @@ class FilmController extends Controller
                 'harga' => $request->harga,
                 'image' => $imagePath,  
             ]);
+
+            for ( $i = 1; $i <= $numberOfSeats; $i++)
+            {
+                \App\Models\Seat::create([
+                    'seat_number' => $request->seat_number
+                ]);
+            }
         }
 
         return redirect()->route('home');

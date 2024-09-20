@@ -27,14 +27,18 @@
                         <img src="{{ 'storage/'.$data->image }}" class="card-img-top" height="250" width="150" alt="...">
                         <div class="card-body">
                           <h5 class="card-title">{{ $data->title }}</h5>
-                          {{-- <p class="card-text">aoa iya</p> --}}
-                          {{-- <a href="/detail/{{ $data->id }}" class="btn btn-primary">Pesan</a> --}}
                         </div>
                     </a>
                   </div>
                     @endforeach
               </div>
         </div>
-    </div>
+
+        <!-- footer -->
+      </div>
 </div>
+</div>
+    <div class="mt-5 bg-primary">
+      <p class="text-center text-white p-5">Copyright Azom 2k24</p>
+    </div>
 @endsection

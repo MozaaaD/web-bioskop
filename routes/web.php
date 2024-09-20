@@ -11,7 +11,8 @@ use App\Http\Controllers\OrderController;
 // });
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('beranda');
+
+Route::get('/', [App\Http\Controllers\HomePageController::class, 'index'])->name('beranda');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 Route::get('/pesan/{id}', [App\Http\Controllers\HomeController::class, 'pesan'])->name('pesan');
 Route::get('/deskripsi', [HomeController::class, 'deskripsi'])->name('deskripsi');

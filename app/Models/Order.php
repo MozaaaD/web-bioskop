@@ -13,4 +13,8 @@ class Order extends Model
     public function film(){
         return $this->belongsTo(Film::class);
     }
+
+    public function seat(){
+        return $this->belongsTo(Seat::class);
+    }
 }

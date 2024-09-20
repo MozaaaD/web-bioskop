@@ -10,12 +10,12 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         // Validate the request
-        $request->validate([
-            'customerName' => 'required|string|max:255',
-            'phoneNumber' => 'required|numeric',
-            'selectedSeats' => 'required|string',
-            'tanggal' => 'required|date',
-        ]);
+        // $request->validate([
+        //     'customerName' => 'required|string|max:255',
+        //     'phoneNumber' => 'required|numeric',
+        //     'selectedSeats' => 'required|string',
+        //     'tanggal' => 'required|date',
+        // ]);
 
         // Store the order details
         // In a real application, you would save this to a database
@@ -23,6 +23,13 @@ class OrderController extends Controller
 
         // You would typically save this data to the database and then retrieve it
         $orderId = 1; // Dummy order ID for demonstration
+
+        \App\Models\Order::create([
+            'nama' => $request->nama,
+            'telp' => $request->telp,
+            'kursi' => $request->kursi,
+            'tanggal' => $request->tanggal,
+        ]);
 
         
 

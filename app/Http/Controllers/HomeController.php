@@ -22,11 +22,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $datas = Film::all();
-        return view('welcome', compact('datas'));
-    }
 
     public function home()
     {

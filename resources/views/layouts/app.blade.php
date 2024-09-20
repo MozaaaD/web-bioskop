@@ -114,7 +114,7 @@
             </div>
         </nav>
 
-        <main class="py-4 mt-5 bs-success-bg-subtle">
+        <main class="mt-5 bs-success-bg-subtle">
             @yield('content')
         </main>
     </div>
