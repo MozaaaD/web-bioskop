@@ -36,17 +36,18 @@ class FilmController extends Controller
                 'image' => $imagePath,  
             ]);
 
-            for ( $i = 1; $i <= $numberOfSeats; $i++)
-            {
-                \App\Models\Seat::create([
-                    'seat_number' => $request->seat_number
-                ]);
-            }
+        }
+
+        for ( $i = 1; $i <= $numberOfSeats; $i++)
+        {
+            \App\Models\Seat::create([
+                'seat_number' => $i
+            ]);
         }
 
         return redirect()->route('home');
     }
-
+ 
     // untuk edit
     public function edit(Request $request ,$id)
     {

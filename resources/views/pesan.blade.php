@@ -8,15 +8,15 @@
     </div>
     <div class="col mt-5">
       <div>
-        <h5>Judul</h5>
-        <h2 class="fw-bold">{{ $data->title }}</h2>
-        <h5>Deskripsi</h5>
+        <h2>Judul</h2>
+        <p class="fw-bold">{{ $data->title }}</p>
+        <h2>Deskripsi</h2>
 
         <p class="fw-semibold">{{ $data->description }}</p>
-        <h5>Harga</h5>
+        <h2>Harga</h2>
 
         <p class="fw-semibold">Rp. {{ $data->harga }}</p>
-        <h5>durasi</h5>
+        <h2>Durasi</h2>
 
         <p>{{ $data->duration }}</p>
       </div>
@@ -32,14 +32,37 @@
                     <div class="seat-container">
                         @foreach ($seats as $seat)
                             <label class="seat-label">
-                                <input type="checkbox" name="kursi" value="{{ $seat->id }}" {{ $seat->is_reserved ? 'disabled' : '' }}>
-                                Kursi {{ $seat->id }}
+                                <input type="checkbox" onchange="haha(this)" name="kursi[]" value="{{ $seat->id }}" {{ $seat->is_reserved ? 'disabled' : '' }}>
+                                Kursi {{ $seat->seat_number }}
                             </label>
                         @endforeach
                     </div>
                 </div>
+
+                <script>
+                    let total = 0;
+                    function haha(e) {
+                        let h = {!! $data->harga !!}
+                        let d = e.checked;
+                        let el = document.getElementById('total')
+
+                        if(d) {
+                            total += h;
+                        } else {
+                            total -= h;
+                        }
+
+                        el.value = total;
+                    }
+                </script>
         
                 <!-- Informasi pelanggan -->
+                
+                <div class="form-group mb-3">
+                    <label for="nama">Harga</label>
+                    <input type="text" id="total" name="total" class="form-control">
+                </div>
+
                 <div class="form-group mb-3">
                     <label for="nama">Nama</label>
                     <input type="text" id="nama" name="nama" class="form-control" required>
@@ -56,7 +79,9 @@
                 </div>
 
                 <input type="hidden" name="film_id" value="{{ $data->id }}">
-        
+
+                {{-- <input type="hidden" name="seat_id" value="{{ $seats->id }}"> --}}
+
                 <!-- Tombol submit -->
                 <button type="submit" class="btn btn-primary">Pesan Kursi</button>
             </form>

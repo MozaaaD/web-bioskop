@@ -9,26 +9,24 @@ class OrderController extends Controller
     
     public function store(Request $request)
     {
-        $request->validate([
-            'customerName' => 'required|string|max:255',
-            'phoneNumber' => 'required|numeric',
-            'selectedSeats' => 'required|string',
-            'tanggal' => 'required|date',
-            'film_id' => 'required|exists:films,id',
-        ]);
 
-        \App\Models\Order::create([
-            'film_id' => $request->film_id,
-            'nama' => $request->nama,
-            'telp' => $request->telp,
-            'kursi' => $request->kursi,
-            'tanggal' => $request->tanggal,
-        ]);
+        $film = \App\Models\Film::find($request->film_id);
+
+        foreach ($request->kursi as $item) {
+            \App\Models\Order::create([
+                'film_id' => $request->film_id,
+                'seat_id' => $item,
+                'nama' => $request->nama,
+                'total' => $request->total,
+                'telp' => $request->telp,
+                'tanggal' => $request->tanggal,
+            ]);
+        }
 
         
 
         // Redirect to the order details page
-        return redirect()->back();
+        return redirect()->route('beranda');
     }
 
     public function show($id)
@@ -37,6 +35,11 @@ class OrderController extends Controller
         $orderData = session('orderData');
 
         return view('order-details', ['orderData' => $orderData]);
+    }
+
+
+    public function struk(){
+        return view('struk');
     }
 
 }
