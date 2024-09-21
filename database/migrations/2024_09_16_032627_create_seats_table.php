@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->integer('seat_number')->unique();
+            $table->integer('seat_number');
             $table->boolean('is_reversed')->default(false);
             $table->timestamps();
         });

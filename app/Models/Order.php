@@ -10,11 +10,11 @@ class Order extends Model
     use HasFactory;
     protected  $guarded = [];
 
-    public function film(){
+    public function films(){
         return $this->belongsTo(Film::class);
     }
 
-    public function seat(){
-        return $this->belongsTo(Seat::class);
+    public function seats(){
+        return $this->hasMany(Seat::class);
     }
 }

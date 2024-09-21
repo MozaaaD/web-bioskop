@@ -26,12 +26,14 @@ class HomeController extends Controller
     public function home()
     {
         $datas = Film::all();
-        return view('dashboard.home', compact('datas'));
+        $seats = \App\Models\Seat::all();
+        return view('dashboard.home', compact('datas', 'seats'));
     }
     public function pesan($id)
     {
-        $data = Film::find($id);
-        return view('pesan', compact('data'));
+        $data = Film::findOrFail($id);
+        $seats = \App\Models\Seat::all();
+        return view('pesan', compact('data', 'seats'));
     }
     public function deskripsi()
     {

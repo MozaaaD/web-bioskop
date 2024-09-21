@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('film_id')->constrained()->cascadeOnDelete();
-            $table->string('seat_id')->constrained('seat')->cascadeOnDelete();
+            $table->foreignId('film_id')->constrained('films')->onDelete('cascade')->default(1);
+            $table->foreignId('seat_id')->constrained('seats')->onDelete('cascade');
             $table->string('nama');
             $table->string('telp');
             $table->integer('kursi');

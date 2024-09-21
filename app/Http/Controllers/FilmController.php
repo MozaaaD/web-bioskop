@@ -23,11 +23,11 @@ class FilmController extends Controller
 
         $numberOfSeats = $request->input('seat_number');
 
-        \App\Models\Seat::truncate();
+        \App\Models\Seat::query()->delete();
 
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('films', 'public');
-            
+                
             Film::create([
                 'title' => $request->title,
                 'description' => $request->description,

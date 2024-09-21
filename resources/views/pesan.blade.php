@@ -23,19 +23,19 @@
       <div class="card">
         <div class="p-3">
 
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('order.create') }}">
                 @csrf
         
                 <!-- Pilihan kursi -->
                 <div class="form-group mb-4">
                     <label for="seats">Pilih Kursi:</label>
                     <div class="seat-container">
-                        {{-- @foreach ($seats as $seat)
+                        @foreach ($seats as $seat)
                             <label class="seat-label">
-                                <input type="checkbox" name="seat_ids[]" value="{{ $seat->id }}" {{ $seat->is_reserved ? 'disabled' : '' }}>
-                                Kursi {{ $seat->seat_number }}
+                                <input type="checkbox" name="kursi" value="{{ $seat->id }}" {{ $seat->is_reserved ? 'disabled' : '' }}>
+                                Kursi {{ $seat->id }}
                             </label>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 </div>
         
@@ -54,11 +54,8 @@
                     <label for="tanggal">Tanggal</label>
                     <input type="date" id="tanggal" name="tanggal" class="form-control" required>
                 </div>
-        
-                <div class="form-group mb-3">
-                    <label for="film_id">ID Film</label>
-                    <input type="number" id="film_id" name="film_id" class="form-control" required>
-                </div>
+
+                <input type="hidden" name="film_id" value="{{ $data->id }}">
         
                 <!-- Tombol submit -->
                 <button type="submit" class="btn btn-primary">Pesan Kursi</button>
