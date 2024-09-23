@@ -29,13 +29,15 @@
                 <!-- Pilihan kursi -->
                 <div class="form-group mb-4">
                     <label for="seats">Pilih Kursi:</label>
-                    <div class="seat-container">
-                        @foreach ($seats as $seat)
-                            <label class="seat-label">
-                                <input type="checkbox" onchange="haha(this)" name="kursi[]" value="{{ $seat->id }}" {{ $seat->is_reversed ? 'disabled' : '' }}>
-                                Kursi {{ $seat->seat_number }}
-                            </label>
-                        @endforeach
+                    <div class="seat-container container">
+                        <div class="row">
+                            @foreach ($seats as $seat)
+                                <label class="seat-label col col-lg-2">
+                                    <input type="checkbox" onchange="haha(this)" name="kursi[]" value="{{ $seat->id }}" {{ $seat->is_reversed ? 'disabled' : '' }}>
+                                    <span style="font-size: 12px">Kursi {{ $seat->seat_number }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
 
