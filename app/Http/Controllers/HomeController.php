@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\User;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +27,7 @@ class HomeController extends Controller
 
     public function home()
     {
+        if(User::find(auth()->id())->role !== 'admin') return redirect('/');
         $datas = Film::all();
         $seats = \App\Models\Seat::all();
         return view('dashboard.home', compact('datas', 'seats'));

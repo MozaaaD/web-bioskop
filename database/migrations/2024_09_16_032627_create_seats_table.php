@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id')->nullable()->constrained()->cascadeOnDelete();
             $table->integer('seat_number');
             $table->boolean('is_reversed')->default(false);
             $table->timestamps();

@@ -28,7 +28,7 @@ Route::post('/edit/{id}', [FilmController::class, 'edit'])->name('edit');
 Route::post('/order', [OrderController::class, 'store'])->name('order.create');
 Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
 
-Route::get('/struk', [OrderController::class, 'struk'])->name('struk');
+Route::get('/struk/{order_id}', [OrderController::class, 'struk'])->name('struk');
 
 
 Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');

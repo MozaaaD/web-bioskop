@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Seat;
+use App\Models\SeatTerpakai;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -11,22 +14,26 @@ class OrderController extends Controller
     {
 
         $film = \App\Models\Film::find($request->film_id);
+        
+        $oid = Order::create([
+            'film_id' => $request->film_id,
+            'nama' => $request->nama,
+            'total' => $request->total,
+            'telp' => $request->telp,
+            'tanggal' => $request->tanggal,
+        ]);
 
         foreach ($request->kursi as $item) {
-            \App\Models\Order::create([
-                'film_id' => $request->film_id,
-                'seat_id' => $item,
-                'nama' => $request->nama,
-                'total' => $request->total,
-                'telp' => $request->telp,
-                'tanggal' => $request->tanggal,
+            Seat::find($item)->update([
+                'order_id' => $oid->id,
+                'is_reversed' => true
             ]);
         }
 
         
 
         // Redirect to the order details page
-        return redirect()->route('beranda');
+        return redirect()->route('struk', $oid->id);
     }
 
     public function show($id)
@@ -38,8 +45,9 @@ class OrderController extends Controller
     }
 
 
-    public function struk(){
-        return view('struk');
+    public function struk($order_id){
+        $d = Order::with(['film', 'seats'])->find($order_id);
+        return view('struk', compact('d'));
     }
 
 }

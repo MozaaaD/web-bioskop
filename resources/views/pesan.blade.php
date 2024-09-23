@@ -32,7 +32,7 @@
                     <div class="seat-container">
                         @foreach ($seats as $seat)
                             <label class="seat-label">
-                                <input type="checkbox" onchange="haha(this)" name="kursi[]" value="{{ $seat->id }}" {{ $seat->is_reserved ? 'disabled' : '' }}>
+                                <input type="checkbox" onchange="haha(this)" name="kursi[]" value="{{ $seat->id }}" {{ $seat->is_reversed ? 'disabled' : '' }}>
                                 Kursi {{ $seat->seat_number }}
                             </label>
                         @endforeach

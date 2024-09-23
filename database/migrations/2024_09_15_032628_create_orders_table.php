@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('film_id')->constrained('films')->onDelete('cascade');
-            $table->foreignId('seat_id')->constrained('seats')->onDelete('cascade');
             $table->string('nama');
             $table->string('total');
             $table->string('telp');
