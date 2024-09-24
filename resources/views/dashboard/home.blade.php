@@ -1,39 +1,46 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <a href="/create" class="btn btn-success mb-4">+ Tambah Film</a>
-                <div class="card">
-                    <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" style="width: 20%">Flyer</th>
-                            <th scope="col" style="width: 20%">Title</th>
-                            <th scope="col" style="width: 20%">Description</th>
-                            <th scope="col" style="width: 20%">Harga</th>
-                            <th scope="col" style="width: 20%">Duration</th>
-                            <th scope="col" style="width: 20%">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($datas as $data)
-                        <tr>
-                            <td style="width: 20%"><img src="{{ 'storage/'.$data->image }}" alt="Image not found." height="150" width="150" class="object-fit-contain"></td>
-                            <td style="width: 20%" class="text-wrap">{{ $data->title }}</td>
-                            <td style="width: 20%" class="text-wrap">{{ $data->description }}</td>
-                            <td style="width: 20%" class="text-wrap">{{ $data->harga }}</td>
-                            <td style="width: 20%">{{ $data->duration }}</td>
-                            <td style="width: 20%">
-                                <a href="/update/{{ $data->id }}" class="btn btn-warning">Edit</a>
-                                <a href="/delete/{{ $data->id }}" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                     @endforeach
-                    </tbody>
-                  </table>
-                </div>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col text-right">
+            <a href="/create" class="btn btn-success">+ Tambah Film</a>
+        </div>
+    </div>
+    <div class="card shadow">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Daftar Film</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 15%">Poster</th>
+                        <th scope="col" style="width: 20%">Judul</th>
+                        <th scope="col" style="width: 25%">Deskripsi</th>
+                        <th scope="col" style="width: 10%">Harga</th>
+                        <th scope="col" style="width: 10%">Durasi</th>
+                        <th scope="col" style="width: 20%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ($datas as $data)
+                    <tr>
+                        <td>
+                            <img src="{{ 'storage/'.$data->image }}" alt="Image not found." class="img-fluid" style="max-height: 150px; object-fit: cover;">
+                        </td>
+                        <td class="text-wrap">{{ $data->title }}</td>
+                        <td class="text-wrap">{{ $data->description }}</td>
+                        <td>Rp {{ number_format($data->harga, 0, ',', '.') }}</td>
+                        <td>{{ $data->duration }}</td>
+                        <td>
+                            <a href="/update/{{ $data->id }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/delete/{{ $data->id }}" class="btn btn-danger btn-sm">Hapus</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

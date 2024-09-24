@@ -1,84 +1,85 @@
-{{-- <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Struk Pesanan Tiket Bioskop</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center">Struk Pesanan Tiket Bioskop</h1>
-        <div class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title">{{ $film->judul }}</h5>
-                <p class="card-text"><strong>Deskripsi:</strong> {{ $film->deskripsi }}</p>
-                <p class="card-text"><strong>Durasi:</strong> {{ $film->durasi }} menit</p>
-                <p class="card-text"><strong>Harga Tiket:</strong> Rp {{ number_format($film->harga_tiket, 0, ',', '.') }}</p>
-                <p class="card-text"><strong>Nomor Kursi:</strong> {{ $pesanan->nomor_kursi }}</p>
-                <p class="card-text"><strong>Nama Pemesan:</strong> {{ $pesanan->nama_pemesan }}</p>
-                <p class="card-text"><strong>Nomor Telepon:</strong> {{ $pesanan->nomor_telepon }}</p>
-                <p class="card-text"><strong>Tanggal Pemesanan:</strong> {{ \Carbon\Carbon::parse($pesanan->tanggal_pemesanan)->format('d-m-Y') }}</p>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <a href="{{ route('home') }}" class="btn btn-primary">Kembali ke Halaman Utama</a>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html> --}}
-
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <title>Struk Pesanan Tiket Bioskop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Poppins';
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
         }
-
+        .card {
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .card-title {
+            color: #ffdd57; /* Gold color */
+            font-weight: 600;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #ffdd57, #f8b400);
+            border: none;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #f8b400, #ffdd57);
+        }
         .min-margin {
             margin-top: -17px !important;
         }
+        .qr-code {
+            width: 300px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .footer-note {
+            color: #ffdd57;
+        }
+        .highlight {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .text-muted {
+            color: #cccccc;
+        }
     </style>
+    <title>Struk Pesanan Tiket Bioskop</title>
 </head>
 <body>
     <div class="container mt-5">
-        <h1><strong class="text-center fs-1">Struk Pesanan</strong> Tiket Bioskop</h1>
-        <div class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"><strong>Judul Film: </strong> {{ $d->film->title }}</p>
-                <p class="card-text"><strong>Deskripsi: </strong> {{ $d->film->description }}</p>
-                <p class="card-text"><strong>Durasi: </strong> {{ $d->film->duration }}</p>
-                <p class="card-text"><strong>Harga Tiket: </strong> Rp {{ $d->total }}</p>
-                <div class="d-flex">
-                    <p class="card-text"><strong>Nomor Kursi:</strong>
+        <h1 class="text-center fs-1">Struk Pesanan Tiket Bioskop</h1>
+        <div class="card mt-4 p-4 d-flex flex-row">
+            <div class="flex-grow-1">
+                <h5 class="card-title"><strong>Judul:</strong> {{ $d->film->title }}</h5>
+                <p class="card-text"><strong>Deskripsi:</strong> {{ $d->film->description }}</p>
+                <p class="card-text"><strong>Durasi:</strong> {{ $d->film->duration }}</p>
+                <p class="card-text"><strong>Harga Tiket:</strong><span class="highlight">Rp {{ number_format($d->total, 0, ',', '.') }}</span></p>
+                <p class="card-text"><strong>Nomor Kursi:</strong>
                     @foreach($d->seats as $i)
-                        {{ $i->seat_number }} , </p>
+                        {{ $i->seat_number }}{{ !$loop->last ? ', ' : '' }}
                     @endforeach
-                </div>
+                </p>
                 <p class="card-text"><strong>Nama Pemesan:</strong> {{ $d->nama }}</p>
                 <p class="card-text"><strong>Nomor Telepon:</strong> {{ $d->telp }}</p>
                 <p class="card-text"><strong>Tanggal Pemesanan:</strong> {{ $d->tanggal }}</p>
             </div>
+            <div class="ml-3">
+                <img src="/Qr.jpg" alt="QR Code" class="qr-code">
+            </div>
         </div>
         <div class="d-flex mt-3">
-            <p class="mt-2">*</p>
+            <p class="mt-2 text-muted">*</p>
             <div>
                 <p class="mt-2 ml-2">Silahkan tangkap layar halaman ini.</p>
-                <p class="mt-2 ml-2 min-margin">Kirim struk tersebut ke Whatsapp Official</p>
+                <p class="mt-2 ml-2 min-margin">Anda bisa membayar lewat QR atau bisa menghubungi <a href="http://wa.me/6285870504353" class="text-warning">Whatsapp Seller</a></p>
             </div>
         </div>
         <div class="text-center mt-4">
