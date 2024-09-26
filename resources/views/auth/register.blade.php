@@ -1,11 +1,57 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body {
+        background-image: url('path-to-cinema-background.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #f8f9fa; /* Warna teks lebih lembut */
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.9); /* Latar belakang putih transparan */
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Biru lembut */
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Biru lebih gelap saat hover */
+    }
+
+    .form-check-label {
+        color: #495057; /* Abu-abu gelap */
+    }
+
+    .invalid-feedback {
+        color: #dc3545; /* Merah lembut untuk pesan kesalahan */
+    }
+
+    .card-header {
+        background-color: #f8f9fa; /* Latar belakang header putih */
+        color: #343a40; /* Teks gelap */
+        text-align: center;
+    }
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-5">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">
+                    <h3>{{ __('Register') }}</h3>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

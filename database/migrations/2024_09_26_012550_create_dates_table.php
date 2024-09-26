@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('seats', function (Blueprint $table) {
+        Schema::create('dates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('film_id')->constrained()->cascadeOnDelete();
-            $table->integer('seat_number');
-            $table->boolean('is_reversed')->default(false);
+            $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+            $table->dateTime('date');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seats');
+        Schema::dropIfExists('dates');
     }
 };

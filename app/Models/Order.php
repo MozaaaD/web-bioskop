@@ -17,4 +17,8 @@ class Order extends Model
     public function seats(){
         return $this->hasMany(Seat::class);
     }
+
+    public function dates(){
+        return $this->hasMany(Date::class);
+    }
 }
