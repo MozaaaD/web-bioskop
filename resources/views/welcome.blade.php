@@ -37,6 +37,7 @@
 
         </div>
     </div>
+</div>
 
     <!-- Footer -->
     <div class="mt-5 bg-primary">

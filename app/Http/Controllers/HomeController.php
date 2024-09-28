@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\Seat;
+use App\Models\Time;
 use App\Models\User;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
@@ -32,11 +34,17 @@ class HomeController extends Controller
         $seats = \App\Models\Seat::all();
         return view('dashboard.home', compact('datas', 'seats'));
     }
-    public function pesan($id)
+    public function pesan($id, $time)
     {
         $data = Film::findOrFail($id);
-        $seats = \App\Models\Seat::all();
+        $seats = Seat::where('time_id', $time)->get();
         return view('pesan', compact('data', 'seats'));
+    }
+    public function pesan2($id)
+    {
+        $data = Film::findOrFail($id);
+        $times = Time::where('film_id', $id)->get();
+        return view('pesan2', compact('data', 'times'));
     }
     public function deskripsi()
     {

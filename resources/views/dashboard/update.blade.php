@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="row mb-4">
                     <div class="col text-center">
-                        <img src="{{ 'storage/' . $data->image }}" alt="Film Poster" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
+                        <img src="{{ '/storage/'.$data->image }}" alt="Film Poster" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
                     </div>
                 </div>
                 <form action="/edit/{{ $data->id }}" method="POST" enctype="multipart/form-data">

@@ -70,9 +70,10 @@
                 <p class="card-text"><strong>Nama Pemesan:</strong> {{ $d->nama }}</p>
                 <p class="card-text"><strong>Nomor Telepon:</strong> {{ $d->telp }}</p>
                 <p class="card-text"><strong>Tanggal Pemesanan:</strong> {{ $d->tanggal }}</p>
+                <p class="card-text"><strong>Jam:</strong> {{ $d->seats()->first()->time->time }}</p>
             </div>
             <div class="ml-3">
-                <img src="/Qr.jpg" alt="QR Code" class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Order%20Id:%20{{ $d->id }}%20---%20Film:%20{{ $d->film->title }}" alt="QR Code" class="qr-code">
             </div>
         </div>
         <div class="d-flex mt-3">

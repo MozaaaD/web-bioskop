@@ -14,4 +14,9 @@ class Film extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function times()
+    {
+        return $this->hasMany(Time::class);
+    }
 }

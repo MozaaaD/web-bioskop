@@ -21,14 +21,12 @@ class FilmController extends Controller
             'image' => 'required',
         ]);
 
-        $numberOfSeats = $request->input('seat_number');
-
         \App\Models\Seat::query()->delete();
 
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('films', 'public');
                 
-            Film::create([
+            $d = Film::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'duration' => $request->duration,
@@ -36,16 +34,10 @@ class FilmController extends Controller
                 'image' => $imagePath,  
             ]);
 
+            return redirect()->route('home');
         }
 
-        for ( $i = 1; $i <= $numberOfSeats; $i++)
-        {
-            \App\Models\Seat::create([
-                'seat_number' => $i
-            ]);
-        }
 
-        return redirect()->route('home');
     }
  
     // untuk edit

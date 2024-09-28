@@ -59,7 +59,7 @@
 </head>
 <body class="bg-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="backdrop-filter: blur(3px);">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
             <div class="container">
                 <a class="navbar-brand text-primary fw-bold fs-2" href="{{ url('/') }}">
                     Cinema XI

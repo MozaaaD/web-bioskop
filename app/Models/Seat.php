@@ -14,4 +14,9 @@ class Seat extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function time()
+    {
+        return $this->belongsTo(Time::class);
+    }
 }

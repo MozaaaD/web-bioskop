@@ -46,7 +46,7 @@ class OrderController extends Controller
 
 
     public function struk($order_id){
-        $d = Order::with(['film', 'seats'])->find($order_id);
+        $d = Order::with(['film', 'seats', 'seats.time'])->find($order_id);
         return view('struk', compact('d'));
     }
 

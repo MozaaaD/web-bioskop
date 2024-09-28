@@ -23,10 +23,6 @@
               <input type="text" class="form-control" id="duaration" name="duration">
             </div>
             <div class="mb-3">
-              <label for="duration" class="form-label">number of seats</label>
-              <input type="number" class="form-control" id="seat_number" name="seat_number">
-            </div>
-            <div class="mb-3">
               <label for="image" class="form-label">Gambar</label>
               <input type="file" class="form-control" id="image" name="image">
             </div>

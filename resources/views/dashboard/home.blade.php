@@ -5,6 +5,7 @@
     <div class="row mb-4">
         <div class="col text-right">
             <a href="/create" class="btn btn-success">+ Tambah Film</a>
+            <a href="/times" class="btn btn-success">+ Tambah Jam</a>
         </div>
     </div>
     <div class="card shadow">
