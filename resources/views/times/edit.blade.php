@@ -3,8 +3,8 @@
 @section('content')
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <div class="container mt-4">
-        <h1 class="mb-4">Edit Time</h1>
+    <div class="container" style="margin-top: 70px">
+        <h1 class="mb-4">Edit Jam</h1>
         <form action="{{ route('times.update', $time) }}" method="POST">
             @csrf
             @method('PUT')
@@ -24,7 +24,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
-            <a href="{{ route('times.index') }}" class="btn btn-secondary">Cancel</a>
+            <a href="{{ route('times.index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 @endsection

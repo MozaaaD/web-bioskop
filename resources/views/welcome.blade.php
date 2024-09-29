@@ -45,13 +45,12 @@
     </div>
 
     <style>
-        /* Gaya Kustom */
         body {
-            background-color: #f8f9fa; /* Latar belakang terang untuk kontras */
+            background-color: #f8f9fa; /* Background */
         }
 
         .text-main {
-            color: #333; /* Teks gelap untuk judul utama */
+            color: #333; /* Teks judul */
             transition: transform 0.3s, color 0.3s;
         }
 

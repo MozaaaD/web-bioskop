@@ -28,7 +28,7 @@
                 @foreach ($datas as $data)
                     <tr>
                         <td>
-                            <img src="{{ 'storage/'.$data->image }}" alt="Image not found." class="img-fluid" style="max-height: 150px; object-fit: cover;">
+                            <img src="{{ '/storage/'.$data->image }}" alt="Image not found." class="img-fluid" style="max-height: 150px; object-fit: cover;">
                         </td>
                         <td class="text-wrap">{{ $data->title }}</td>
                         <td class="text-wrap">{{ $data->description }}</td>

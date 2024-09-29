@@ -38,6 +38,12 @@ class HomeController extends Controller
     {
         $data = Film::findOrFail($id);
         $seats = Seat::where('time_id', $time)->get();
+
+        $allReserved = $seats->every('is_reversed');
+        if ($allReserved) {
+            return redirect()->back();
+        }
+
         return view('pesan', compact('data', 'seats'));
     }
     public function pesan2($id)

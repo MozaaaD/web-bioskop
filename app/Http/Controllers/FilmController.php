@@ -44,12 +44,22 @@ class FilmController extends Controller
     public function edit(Request $request ,$id)
     {
         $data = Film::find($id);
-        $updateCok = $request->all();
-        $data->update($updateCok);
+        if ($request->file('image')) {
+            $imagePath = $request->file('image')->store('films', 'public');
+        }
+            $d = $data->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'duration' => $request->duration,
+                'harga' => $request->harga,
+                'image' => $imagePath,  
+            ]);
+
+        
         return redirect()->route('home');
     }
 
-    // tampilan rdit
+    // tampilan edit 
     public function update($id)
     {
         $data = Film::find($id);

@@ -2,8 +2,8 @@
 
 @section('content')
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <div class="container mt-4">
-        <h1 class="mb-4">Create Time</h1>
+    <div class="container" style="margin-top: 70px">
+        <h1 class="mb-4">Tambah Jam</h1>
         <form action="{{ route('times.store') }}" method="POST">
             @csrf
             
@@ -17,16 +17,16 @@
             </div>
 
             <div class="form-group">
-                <label for="time">Time:</label>
+                <label for="time">Jam:</label>
                 <input type="time" name="time" id="time" class="form-control" required>
             </div>
 
             <div class="form-group mb-3">
-                <label for="seat_number" class="form-label">Number of Seats:</label>
+                <label for="seat_number" class="form-label">Jumlah Kusi:</label>
                 <input type="number" class="form-control" id="seat_number" name="seat_number" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Tambah</button>
             <a href="{{ route('times.index') }}" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
