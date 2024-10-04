@@ -27,20 +27,20 @@
     }
 
     .btn-primary:hover {
-        background-color: #0056b3; /* Biru lebih gelap saat hover */
+        background-color: #0056b3; 
     }
 
     .form-check-label {
-        color: #495057; /* Abu-abu gelap */
+        color: #495057; 
     }
 
     .invalid-feedback {
-        color: #dc3545; /* Merah lembut untuk pesan kesalahan */
+        color: #dc3545; 
     }
 
     .card-header {
-        background-color: #f8f9fa; /* Latar belakang header putih */
-        color: #343a40; /* Teks gelap */
+        background-color: #f8f9fa;
+        color: #343a40;
         text-align: center;
     }
 </style>

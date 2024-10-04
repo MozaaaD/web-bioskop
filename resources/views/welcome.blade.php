@@ -8,7 +8,9 @@
             <!-- Hero Section -->
             <div class="container full-height d-flex align-items-center fade-in">
                 <div class="w-50 pl-5">
-                    <h1 class="display-4 text-start fw-bold text-main">Nonton Film Paling Seru Ya Di <span class="text-primary">Cinema XI</span></h1>
+                    <h1 class="display-3 text-start fw-bold text-main text-black">
+                        Nonton Film Paling Seru? <span class="text-primary no-wrap"><span class="text-dark">Di</span> Cinema XI <span class="text-black">Dong.</span></span>
+                    </h1>
                     <p class="lead text-start text-secondary text-desc">Buruan ajak orang terdekat kamu untuk nonton film di Cinema XI, dijamin kamu akan balik lagi.</p>
                     <a href="#movies" class="btn btn-primary py-3 px-4 fs-5 rounded shadow">Explore Movies <img src="svg/arrow.svg" alt="cinema" class="ml-2"></a>
                 </div>
@@ -39,102 +41,106 @@
     </div>
 </div>
 
-    <!-- Footer -->
-    <div class="mt-5 bg-primary">
-        <p class="text-center text-white p-3 mb-0">&copy; 2024 Azom. All Rights Reserved.</p>
-    </div>
+<!-- Footer -->
+<div class="mt-5 bg-primary">
+    <p class="text-center text-white p-3 mb-0">&copy; 2024 Azom. All Rights Reserved.</p>
+</div>
 
-    <style>
-        body {
-            background-color: #f8f9fa; /* Background */
-        }
+<style>
+    body {
+        background-color: #f8f9fa; 
+    }
 
-        .text-main {
-            color: #333; /* Teks judul */
-            transition: transform 0.3s, color 0.3s;
-        }
+    .text-main {
+        color: #333; 
+        transition: transform 0.3s, color 0.3s;
+    }
 
-        .text-main:hover {
-            transform: scale(1.05);
-            color: #000; /* Ubah warna saat hover */
-        }
+    .text-main:hover {
+        transform: scale(1.05);
+        color: #000; 
+    }
 
-        .text-desc {
-            color: #666; /* Warna lembut untuk deskripsi */
-            transition: color 0.3s;
-        }
+    .text-desc {
+        color: #666; 
+        transition: color 0.3s;
+    }
 
-        .text-desc:hover {
-            color: #444; /* Lebih gelap saat hover */
-        }
+    .text-desc:hover {
+        color: #444; 
+    }
 
-        .card {
-            transition: transform 0.3s;
-            border-radius: 10px;
-        }
+    .card {
+        transition: transform 0.3s;
+        border-radius: 10px;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-        .btn-primary {
-            background: linear-gradient(90deg, #ffdd57, #f8b400);
-            border: none;
-            transition: background 0.3s;
-        }
+    .btn-primary {
+        background: linear-gradient(90deg, #ffdd57, #f8b400);
+        border: none;
+        transition: background 0.3s;
+    }
 
-        .btn-primary:hover {
-            background: linear-gradient(90deg, #f8b400, #ffdd57);
-        }
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #f8b400, #ffdd57);
+    }
 
-        h2 {
-            font-weight: 600;
-            color: #333; /* Teks lebih gelap untuk kontras */
-        }
+    h2 {
+        font-weight: 600;
+        color: #333; 
+    }
 
-        /* Animasi Gulir */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
+    .no-wrap {
+        white-space: nowrap;
+    }
 
-        .fade-in-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Animasi Gulir */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s, transform 0.6s;
+    }
 
-        .fade-out {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s, transform 0.6s;
-        }
+    .fade-in-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        .fade-out-hidden {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-    </style>
+    .fade-out {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s, transform 0.6s;
+    }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+    .fade-out-hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+</style>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-visible');
-                    } else {
-                        entry.target.classList.remove('fade-in-visible');
-                    }
-                });
-            });
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
 
-            fadeElements.forEach(element => {
-                observer.observe(element);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
+                } else {
+                    entry.target.classList.remove('fade-in-visible');
+                }
             });
         });
-    </script>
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
 
 @endsection

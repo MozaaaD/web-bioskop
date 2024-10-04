@@ -21,7 +21,6 @@ class FilmController extends Controller
             'image' => 'required',
         ]);
 
-        \App\Models\Seat::query()->delete();
 
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('films', 'public');
@@ -44,17 +43,17 @@ class FilmController extends Controller
     public function edit(Request $request ,$id)
     {
         $data = Film::find($id);
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->duration = $request->duration;
+        $data->harga = $request->harga;
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('films', 'public');
-        }
-            $d = $data->update([
-                'title' => $request->title,
-                'description' => $request->description,
-                'duration' => $request->duration,
-                'harga' => $request->harga,
-                'image' => $imagePath,  
-            ]);
+            $data->image = $imagePath;
 
+        }
+
+        $data->save();
         
         return redirect()->route('home');
     }
