@@ -76,11 +76,6 @@
                     <input type="text" id="telp" name="telp" class="form-control" required>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="tanggal">Tanggal</label>
-                    <input type="date" id="tanggal" name="tanggal" class="form-control" required>
-                </div>
-
                 <input type="hidden" name="film_id" value="{{ $data->id }}">
                 <button type="submit" class="btn btn-primary">Pesan Kursi</button>
             </form>

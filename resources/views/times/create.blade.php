@@ -17,6 +17,10 @@
             </div>
 
             <div class="form-group">
+                <label for="time">Tanggal:</label>
+                <input type="date" name="tgl" id="tgl" class="form-control" required>
+            </div>
+            <div class="form-group">
                 <label for="time">Jam:</label>
                 <input type="time" name="time" id="time" class="form-control" required>
             </div>

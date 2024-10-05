@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nama');
             $table->string('total');
             $table->string('telp');
-            $table->date('tanggal');
             $table->timestamps();
         });
     }

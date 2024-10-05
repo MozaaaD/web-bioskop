@@ -25,11 +25,13 @@ class TimeController extends Controller
         $request->validate([
             'film_id' => 'required|exists:films,id',
             'time' => 'required|string',
+            'tgl' => 'required|string',
         ]);
 
         $d = Time::create([
             'film_id' => $request->film_id,
-            'time' => $request->time
+            'time' => $request->time,
+            'tgl' => $request->tgl
         ]);
 
         $numberOfSeats = $request->input('seat_number');
@@ -60,6 +62,7 @@ class TimeController extends Controller
         $request->validate([
             'film_id' => 'required|exists:films,id',
             'time' => 'required|string',
+            'tgl' => 'required|string',
         ]);
 
         $time->update($request->all());

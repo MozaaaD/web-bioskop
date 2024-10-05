@@ -69,7 +69,7 @@
                 </p>
                 <p class="card-text"><strong>Nama Pemesan:</strong> {{ $d->nama }}</p>
                 <p class="card-text"><strong>Nomor Telepon:</strong> {{ $d->telp }}</p>
-                <p class="card-text"><strong>Tanggal Pemesanan:</strong> {{ $d->tanggal }}</p>
+                <p class="card-text"><strong>Tanggal Pemesanan:</strong> {{ $d->seats()->first()->time->tgl }}</p>
                 <p class="card-text"><strong>Jam:</strong> {{ $d->seats()->first()->time->time }}</p>
             </div>
             <div class="ml-3">

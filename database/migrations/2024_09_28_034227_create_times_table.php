@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('film_id')->constrained()->cascadeOnDelete();
             $table->string('time');
+            $table->string('tgl');
             $table->timestamps();
         });
     }

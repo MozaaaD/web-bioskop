@@ -20,7 +20,6 @@ class OrderController extends Controller
             'nama' => $request->nama,
             'total' => $request->total,
             'telp' => $request->telp,
-            'tanggal' => $request->tanggal,
         ]);
 
         foreach ($request->kursi as $item) {

@@ -12,6 +12,7 @@
                 <tr>
                     <th>Film</th>
                     <th>Jam</th>
+                    <th>Tanggal</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                     <tr>
                         <td>{{ $time->film->title }}</td>
                         <td>{{ $time->time }}</td>
+                        <td>{{ $time->tgl }}</td>
                         <td>
                             <a href="{{ route('times.edit', $time) }}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('times.destroy', $time) }}" method="POST" style="display:inline;">

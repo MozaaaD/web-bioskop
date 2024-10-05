@@ -8,9 +8,12 @@
     </div>
     <div class="col mt-5">
         @foreach ($times as $time)
-        <label class="seat-label col-1 mx-1">
-            <a href="/pesan/{{ $data->id }}/{{ $time->id }}">{{ $time->time }}</a>
-        </label>
+        <div class="seat-label mx-1">
+            <a href="/pesan/{{ $data->id }}/{{ $time->id }}" class="time-link">
+                <span class="time-icon">🕒</span> {{ $time->time }},
+                <span class="date-icon">📅</span> {{ $time->tgl }}
+            </a>
+        </div>
         @endforeach
     </div>
   </div>
@@ -18,28 +21,33 @@
 
 <style>
     .seat-label {
-        display: flex;
         font-size: 35px;
-        flex-direction: column;
-        align-items: center;
         margin: 5px; /* Reduced margin for tighter spacing */
         transition: transform 0.2s;
+        background-color: #f8f9fa; /* Light background */
+        padding: 10px;
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
     }
 
     .seat-label:hover {
         transform: scale(1.05); /* Slight zoom on hover */
+        background-color: #e9ecef; /* Slightly darker on hover */
     }
 
-    .seat-number {
-        font-size: 12px;
-        font-weight: bold;
-        margin-top: 5px;
+    .time-link {
+        text-decoration: none; /* Remove underline */
+        color: #333; /* Dark color for text */
     }
 
-    .seat-container input[type="checkbox"]:disabled + label {
-        background-color: #f44336;
-        cursor: not-allowed;
-        color: #fff;
+    .time-icon, .date-icon {
+        margin-right: 5px; /* Space between icon and text */
+        font-size: 30px; /* Larger size for icons */
+        vertical-align: middle; /* Align icon with text */
+    }
+
+    .time-link:hover {
+        color: #007bff; /* Change color on hover */
     }
 
     .zoom-image {

@@ -19,6 +19,11 @@
             </div>
 
             <div class="form-group">
+                <label for="time">Tanggal:</label>
+                <input type="date" name="tgl" id="tgl" class="form-control" value="{{ $time->tgl }}" required>
+            </div>
+
+            <div class="form-group">
                 <label for="time">Time:</label>
                 <input type="time" name="time" id="time" class="form-control" value="{{ $time->time }}" required>
             </div>
